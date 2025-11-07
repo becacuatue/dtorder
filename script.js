@@ -23,3 +23,10 @@ function viewProduct(productId) {
   console.log(image)
   console.log(productId)
 }
+function addToCart() {
+  const product = JSON.parse(localStorage.getItem('selectedProduct'));
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(product);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert('Đã thêm vào giỏ hàng!');
+}
