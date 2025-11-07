@@ -27,5 +27,19 @@
             <a href="" class="button">Sign up</a>
         </div>
     </header>
+    <h2>Giỏ hàng của bạn</h2>
+    <div id="cartItems"></div>
+
+    <script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const container = document.getElementById('cartItems');
+    container.innerHTML = cart.map(p => `
+        <div>
+        <img src="${p.image}" width="100">
+        <h3>${p.name}</h3>
+        <p>${p.price}đ</p>
+        </div>
+    `).join('');
+    </script>
 </body>
 </html>
