@@ -45,7 +45,7 @@
 
         <div class="product_des">
             <h5 id="productTag"></h5><!--tag------------------------------------------------->
-            <h2 id="productName"></h2><!--name------------------------------------------>
+            <h2 id="productName" style="font-family: Helvetica;"></h2><!--name------------------------------------------>
             <h3 style="margin-bottom:5px;" id="productPrice"></h3><!--price---------->
             <div class="grade" style="display:flex; align-items: center;--fa-animation-duration: 1.5s; ">
                 <p style="margin-right: 7px;">Grade:</p>
@@ -63,19 +63,20 @@
                     <option>M</option>
                     <option>S</option>
                 </select><br>
-                <select class="button" style="margin:0px;">
+                <select class="button" style="margin:0px; background-color: #ffffff; color:black; border: 1px solid black;">
                     <option>Quantities</option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
                     <option>5+</option>
-                </select><br>
-            </div>
-            <button class="button" style="margin-left: 0px; display: flex; align-items: center;" onclick="addToCart()">
-                Add To Cart 
+                </select>
+                <button class="button" style="margin-left: 10px; display: flex; align-items: center;" onclick="addToCart()">
+                Thêm vào giỏ 
                 <i class="fa-solid fa-cart-plus" style="color: #ffffff; margin-left: 10px;"></i>
             </button>
+            </div>
+            
             
             <hr>
         <p>
@@ -110,8 +111,7 @@
         document.getElementById('productTag').innerText = product.tag;
         document.getElementById('productName').innerText = product.name;
         document.getElementById('productImage').src = product.image;
-        document.getElementById('productPrice').innerText = product.price + 'đ';
-        
+        document.getElementById('productPrice').innerText = product.price + 'đ';      
     }
 
     </script>
