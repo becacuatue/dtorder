@@ -1,152 +1,76 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="">
 <head>
-<meta charset="UTF-8">
-<title>Admin Login</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-  * {
-    box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
-  }
-
-  body {
-    height: 100vh;
-    margin: 0;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .login-box {
-    width: 360px;
-    background: #fff;
-    border-radius: 14px;
-    padding: 32px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-    animation: fadeIn 0.6s ease;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(15px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .login-box h2 {
-    text-align: center;
-    margin-bottom: 24px;
-    color: #333;
-  }
-
-  .form-group {
-    margin-bottom: 16px;
-  }
-
-  .form-group label {
-    display: block;
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 6px;
-  }
-
-  .form-group input {
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    outline: none;
-    transition: border 0.3s;
-  }
-
-  .form-group input:focus {
-    border-color: #2a5298;
-  }
-
-  .login-btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background: #2a5298;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.1s;
-  }
-
-  .login-btn:hover {
-    background: #22222290;
-  }
-
-  .login-btn:active {
-    transform: scale(0.98);
-  }
-
-  .footer-text {
-    text-align: center;
-    font-size: 12px;
-    color: #999;
-    margin-top: 18px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="description" content="DT ORDER - Shop chuyên order và bán sẵn giày dép, quần áo chất lượng cao. Kiểm tra kỹ từng sản phẩm, liên hệ mua hàng qua Tele/Zalo 0335038618.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DT ORDER</title>
+    <!-- embeded font-->
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <!--header-->
+    <header class="header">
+        <div class="main-content">
+            <!--logo-->
+            <h1 class="logo"><a href ="index.html"> DT <i class="fa-sharp fa-solid fa-globe fa-spin fa-sm "></i>RDER.</a></h1>
+            <!--navigation-->
+            <nav class="nav" >
+                <a href="index.html" class="">HOME</a>
+                <a href="yourcart.html" class="">GIỎ HÀNG</a>
+              
+            </nav>
+        </div>
+    </header>
+    <hr>
+<!--=============================================================================================================================category=========================-->
+<!--===================================================================================================================product box==================================-->
+        <div class="searchAndTag">
+             <!-- TAG FILTER -->
+            <div class="filter-bar" id="tagBar"></div>
+            <div class="searchAndBrand">
+                    <!-- brand -->
+                <select class="button" id="brand" style="margin-left:0px;margin-right:10px;">
+                        <option value="" selected disabled>Chọn Thương Hiệu</option>
+                        <option value="" >Tất Cả</option>
+                </select>
+                    <!-- SEARCH -->
+                <input type="text" id="search" placeholder="Tìm sản phẩm...">
+            </div>
+        </div> 
+    <hr>
 
-<div class="login-box">
-  <h2>Admin Login</h2>
+        <!-- PRODUCT LIST -->
+    <div class="product-list" id="productList"> </div>
 
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input id="email" type="email" placeholder="admin@example.com">
-  </div>
+        <!-- PAGINATION -->
+    <div class="pagination" id="pagination"></div>
 
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input id="password" type="password" placeholder="••••••••">
-  </div>
+    <div class="no-result" id="noResult" style="display:none;">Không tìm thấy sản phẩm nào.</div>
 
-  <button id="loginBtn" class="login-btn">Đăng nhập</button>
-
-  <div class="footer-text">
-    © Admin Panel
-  </div>
-</div>
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBdEuAqxHxHaxE3lTCEOwH2YO8L2Jg4hlY",
-  authDomain: "dtorder-19c91.firebaseapp.com",
-  projectId: "dtorder-19c91",
-  storageBucket: "dtorder-19c91.firebasestorage.app",
-  messagingSenderId: "499125096462",
-  appId: "1:499125096462:web:5fc0f37019e018fd57ac5f"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);  
-
-document.getElementById("loginBtn").onclick = () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => window.location.href = "admin.html")
-    .catch(err => alert("Sai thông tin: " + err.message));
-};
-</script>
+<!--================================================================================================================================================footer============-->
+    <footer class="footer_main">
+        <h1>DT <i class="fa-sharp fa-solid fa-globe fa-spin fa-spin fa-sm"></i>RDER</h1>
+        <div class="contact_box">
+            <h2>CONTACT LIST:</h2>
+            <ul>
+                <li>Tele/ZALO : 0335038618</li>
+                <li>Tham gia group sale : <a href="https://zalo.me/g/ftizzk959">https://zalo.me/g/ftizzk959</a></li>
+                <li>Tiktok : <a href="https://www.tiktok.com/@dthighend">https://www.tiktok.com/@dthighend</a></li>
+                <li>Instagram : <a href="https://www.instagram.com/dt_order/">https://www.instagram.com/dt_order/</a></li>
+            </ul>
+        </div>
+        <img src="img/kGSCdc_qrcode.png" style="margin-right: 10px;">
+    </footer>
+    <script type="module" src="script.js"></script> 
 </body>
 </html>
-
