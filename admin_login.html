@@ -85,7 +85,7 @@
   }
 
   .login-btn:hover {
-    background: #22222290;
+    background: #363636bb;
   }
 
   .login-btn:active {
@@ -136,7 +136,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);  
+const auth = getAuth(app);
 
 document.getElementById("loginBtn").onclick = () => {
   const email = document.getElementById("email").value;
@@ -149,4 +149,3 @@ document.getElementById("loginBtn").onclick = () => {
 </script>
 </body>
 </html>
-
