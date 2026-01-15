@@ -1,0 +1,345 @@
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f5f5f5;
+    padding: 20px;
+}
+.cart-container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+.cart-item-des{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-name {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.price {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.quantity-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-box button {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #333;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.remove-btn {
+    background: #e9e9e9;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.total-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+/* Nút thanh toán */
+.pay-btn {
+    padding: 12px 20px;
+    background: #000000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    transition: 0.25s;
+}
+.pay-btn:hover {
+    background: #005dc7;
+}
+.contact-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.contact-card {
+    width: 90%;
+    max-width: 500px;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+    position: relative;
+    animation: fadeUp 0.3s ease;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+}
+@keyframes fadeUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    width: 28px;
+    height: 28px;
+    font-size: 17px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.close-btn:hover {
+    background: #d93838;
+}
+.qr-img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.contact-title {
+    font-size: 26px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.contact-sub {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #555;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.contact-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.contact-list li {
+    background: #f8f9fa;
+    border-left: 4px solid #007bff;
+    padding: 12px 14px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.contact-list a {
+    color: #007bff;
+    font-weight: 500;
+    word-break: break-all;
+}
+.contact-list a:hover {
+    text-decoration: underline;
+}
+
+.tag {
+    font-weight: 700;
+    color: #333;
+}
+@media (max-width: 768px) {
+    .contact-card {
+        width: 90%;
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .qr-img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .contact-title {
+        font-size: 22px;
+    }
+
+    .contact-sub {
+        font-size: 16px;
+    }
+
+    .contact-list li {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+}
+@media(max-width:500px){
+h1{
+    font-size: 1.5em;
+}
+    .cart-container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+    border-radius: 9px;
+}
+.cart-item {
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 97%;
+    height: inherit;
+    border-radius: 7px;
+    margin-right: 15px;
+}
+
+.item-info {
+    flex: 1;
+    font-size: xx-small;
+}
+
+.item-name {
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.price {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.quantity-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: xx-small;
+}
+
+.quantity-box button {
+    width: 18px;
+    height: 18px;
+    border: none;
+    background: #333;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.remove-btn {
+    border: none;
+    padding: 3px 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: xx-small;
+}
+
+.total-box {
+    text-align: right;
+    margin-top: 5px;
+    font-size: xx-small;
+    font-weight: bold;
+}
+}
+@media (max-width: 480px) {
+    .contact-card {
+        width: 94%;
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    .qr-img {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 15px;
+    }
+
+    .contact-title {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .contact-sub {
+        font-size: 14px;
+    }
+
+    .contact-list li {
+        font-size: 14px;
+        padding: 9px 10px;
+        border-left-width: 3px;
+    }
+
+    .close-btn {
+        width: 26px;
+        height: 26px;
+        font-size: 15px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .pay-btn {
+        padding: 12px 20px;
+        font-size: 10px;
+    }
+}
+
+/* Màn hình cực nhỏ dưới 360px */
+@media (max-width: 360px) {
+    .qr-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .contact-title {
+        font-size: 18px;
+    }
+
+    .contact-list li {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
